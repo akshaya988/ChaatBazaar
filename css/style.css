@@ -1539,3 +1539,18 @@ mark.highlight {
   box-shadow: 0 6px 20px rgba(191, 54, 12, 0.4);
   transform: translateY(-1px);
 }
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fff3e0;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff5722;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e64a19;
+}
