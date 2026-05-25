@@ -113,6 +113,7 @@
 }
 
     /* ===== Header ===== */
+    
     header {
       position: sticky;
       top: 0;
@@ -143,7 +144,7 @@
       font-weight: 600;
     }
     nav a {
-      color: white;
+      color: black;
       padding: 0.5rem 1rem;
       border-radius: 8px;
       transition: background 0.3s ease;
@@ -153,6 +154,172 @@
       background: #e64a19;
       box-shadow: 0 0 8px rgb(230 74 25 / 0.8);
     }
+
+    /* ===== Theme Toggle ===== */
+
+#theme-toggle {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+
+  background: rgba(255,255,255,0.12);
+  color: white;
+
+  font-size: 1.1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  backdrop-filter: blur(8px);
+}
+
+#theme-toggle:hover {
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.22);
+}
+
+/* ===== Smooth Theme Transition ===== */
+
+body,
+header,
+.card,
+.team-member,
+.testimonial,
+section,
+footer,
+input,
+textarea,
+select,
+nav a,
+#cart-sidebar {
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ===== Dark Mode ===== */
+
+body.dark-mode {
+  background: #121212;
+  color: #f5f5f5;
+}
+
+/* Header */
+body.dark-mode header {
+  background: #1f1f1f;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.5);
+}
+
+/* Main Sections */
+body.dark-mode section.specials,
+body.dark-mode section.menu,
+body.dark-mode section.about,
+body.dark-mode section.testimonials {
+  background: #181818;
+}
+
+/* Cards */
+body.dark-mode .card,
+body.dark-mode .team-member,
+body.dark-mode .testimonial,
+body.dark-mode .advanced-filters,
+body.dark-mode .cart-item,
+body.dark-mode .order-card,
+body.dark-mode .empty-orders {
+  background: #222;
+  color: #f5f5f5;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+/* Text Colors */
+body.dark-mode .section-title,
+body.dark-mode .about h2,
+body.dark-mode .card h3,
+body.dark-mode .team-member h4,
+body.dark-mode .orders-page h1,
+body.dark-mode .order-id {
+  color: #ffb74d;
+}
+
+body.dark-mode .card-content p,
+body.dark-mode .about p,
+body.dark-mode .testimonial p,
+body.dark-mode .team-member p,
+body.dark-mode .order-date,
+body.dark-mode .order-item-row {
+  color: #d0d0d0;
+}
+
+/* Navbar Links */
+body.dark-mode nav a:hover,
+body.dark-mode nav a.active {
+  background: #333;
+}
+
+/* Search */
+body.dark-mode .search-bar input {
+  background: #2a2a2a;
+  color: white;
+}
+
+body.dark-mode .search-bar input::placeholder {
+  color: #bbbbbb;
+}
+
+/* Inputs */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: #2a2a2a;
+  color: white;
+  border-color: #444;
+}
+
+/* Cart Sidebar */
+body.dark-mode #cart-sidebar {
+  background: #1e1e1e;
+}
+
+/* Footer */
+body.dark-mode footer {
+  background: #0d0d0d;
+}
+
+/* Newsletter */
+body.dark-mode section.newsletter {
+  background: #1f1f1f;
+}
+
+/* Buttons */
+body.dark-mode .filter-btn {
+  background: #222;
+  color: #ffb74d;
+  border-color: #ffb74d;
+}
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn:hover {
+  background: #ff5722;
+  color: white;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
 
     /* ===== Dropdown Nav ===== */
     .dropdown {
@@ -1616,4 +1783,57 @@ mark.highlight {
   background: #bf360c;
   box-shadow: 0 6px 20px rgba(191, 54, 12, 0.4);
   transform: translateY(-1px);
+}
+
+/* ===== Fix Header Visibility ===== */
+
+header {
+  background: linear-gradient(90deg, #ff5a1f, #ff6b2d);
+}
+
+/* Navbar Links */
+/* ===== Light Mode Navbar ===== */
+
+header nav a {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== Dark Mode Navbar ===== */
+
+body.dark-mode header nav a {
+  color: #f5f5f5;
+}
+/* Search Bar */
+.search-bar input {
+  background: rgba(255,255,255,0.92);
+  color: #333;
+}
+
+/* Theme Toggle Default */
+#theme-toggle {
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+/* ===== Hero Text Visibility ===== */
+
+.hero-content h1,
+.hero-content p {
+  color: white;
+}
+
+/* ===== Dark Mode Proper Fix ===== */
+
+body.dark-mode header {
+  background: #1f1f1f;
+}
+
+body.dark-mode nav a {
+  color: #f5f5f5;
+}
+
+body.dark-mode .hero-content h1,
+body.dark-mode .hero-content p {
+  color: white;
 }
