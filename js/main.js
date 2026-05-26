@@ -134,6 +134,11 @@ function createCard(item, highlightQuery = "") {
   }
 
 
+  card.addEventListener("click", () => {
+    RecentlyViewed.addItem(item);
+    renderRecentlyViewed();
+  });
+
   return card;
 }
 
@@ -154,6 +159,25 @@ function renderSpecials() {
 function renderMenu(filter = "All") {
   currentCategory = filter;
   applyAllFilters();
+}
+
+function renderRecentlyViewed() {
+  const recentlyViewedContainer = document.getElementById("recently-viewed-cards");
+  const recentlyViewedSection = document.getElementById("recently-viewed");
+  if (!recentlyViewedContainer || !recentlyViewedSection) return;
+
+  const recentItems = RecentlyViewed.getItems();
+  recentlyViewedContainer.innerHTML = "";
+
+  if (recentItems.length === 0) {
+    recentlyViewedSection.style.display = "none";
+    return;
+  }
+
+  recentlyViewedSection.style.display = "block";
+  recentItems.forEach(item => {
+    recentlyViewedContainer.appendChild(createCard(item));
+  });
 }
 
 // ===== Unified Interactive Filter Engine =====
@@ -973,6 +997,7 @@ async function init() {
   await loadMenuData();
 
   renderSpecials();
+  renderRecentlyViewed();
   applyAllFilters();
   updateCartCount();
   renderCart();
