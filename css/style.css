@@ -34,61 +34,68 @@
       padding: 0 1rem;
     }
 
-    /* ===== Toast Notification ===== */
+/* ===== Toast Notification ===== */
 
 .toast-notification {
   position: fixed;
-  top: 90px;
-  left: 50%;
-  transform: translateX(-50%) translateY(-20px);
 
-  background: linear-gradient(135deg, #ff7a00, #ff9a3c);
+  bottom: 24px;
+  right: 24px;
+
+  background: #2e7d32; /* Same green as Add button */
   color: #fff;
 
-  padding: 14px 24px;
+  padding: 14px 22px;
   border-radius: 14px;
 
   font-size: 15px;
   font-weight: 600;
 
-  min-width: 280px;
+  min-width: 260px;
   text-align: center;
 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.2);
 
   opacity: 0;
+
+  transform:
+    translateY(20px)
+    scale(0.95);
+
   transition: all 0.35s ease;
 
   z-index: 9999;
   pointer-events: none;
 
-  border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
 }
+
+/* ===== Show Animation ===== */
 
 .toast-notification.show {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+
+  transform:
+    translateY(0)
+    scale(1);
 }
 
 /* ===== Mobile Responsive ===== */
 
 @media (max-width: 600px) {
-  .toast-notification {
-    width: calc(100% - 32px);
-    min-width: unset;
 
+  .toast-notification {
     left: 16px;
     right: 16px;
 
-    transform: translateY(-20px);
+    bottom: 16px;
+
+    width: auto;
+    min-width: unset;
 
     font-size: 14px;
     padding: 12px 16px;
-  }
-
-  .toast-notification.show {
-    transform: translateY(0);
   }
 }
 
