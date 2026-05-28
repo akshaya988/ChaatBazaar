@@ -341,6 +341,20 @@ function updateCartCount() {
   }
 }
 
+function updateFavCount() {
+  const favCount = document.getElementById("fav-count");
+  if (favCount) {
+    const recentItems = RecentlyViewed.getItems();
+    favCount.textContent = recentItems.length;
+  }
+}
+
+function saveCart() {
+  if (cartManager) {
+    cartManager.saveToStorage();
+  }
+}
+
 // ===== My Orders Dashboard & Real-Time Tracking Engine =====
 
 function updateOrderStatuses() {
@@ -943,6 +957,16 @@ function setupActiveNavbar() {
   });
 }
 
+function updateFavCount() {
+  // Prevent ReferenceError
+  // You can later implement actual favorite count logic here
+  return;
+}
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 // ===== Initialization =====
 
 // ===== Dark Mode Toggle =====
@@ -998,8 +1022,8 @@ async function init() {
 
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", () => {
-      window.checkout();
-    });
+   window.location.href = "orders.html";
+});
   }
 
   // Load database items asynchronously without blocking UI interactions
